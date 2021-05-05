@@ -12,6 +12,7 @@ class DrinkAdmin(admin.ModelAdmin):
     list_display = ("category", "type", "size", "price")
 
 
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ("buyer", "order_items", "total_price")
@@ -30,4 +31,4 @@ class OrderAdmin(admin.ModelAdmin):
 
     def total_price(self, obj):
         result = sum(drink.price for drink in obj.drinks.all())
-        return f'{result}$'
+        return f'{result}Kr.'

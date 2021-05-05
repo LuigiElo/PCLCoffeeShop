@@ -31,11 +31,11 @@ class Drink(models.Model):
     size = models.CharField(
         max_length=10,
         choices=[(tag.value, tag.name) for tag in Size])
-    price = models.PositiveSmallIntegerField(
+    price = models.FloatField(
         validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     def __str__(self):
-        return f"{self.category}, {self.type}, {self.size}, {self.price}" + "$"
+        return f"{self.category}, {self.type}, {self.size}, {self.price}" + "Kr."
 
 
 class Order(models.Model):
